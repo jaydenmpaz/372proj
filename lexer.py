@@ -45,6 +45,8 @@ GT = 'GT'
 LE = 'LE'
 GE = 'GE'
 ASSIGN = 'ASSIGN'
+ARROW = 'ARROW'
+INPUT = 'INPUT'
 
 # Punctuation
 SEMI = 'SEMI'
@@ -82,9 +84,9 @@ class Lexer:
         else:
             self.current_char = self.text[self.pos]
 
-    def peek(self):
-        """Peek at the next character without consuming it."""
-        peek_pos = self.pos + 1
+    def peek(self, ahead=1):
+        """Peek ahead 'ahead' characters without consuming them."""
+        peek_pos = self.pos + ahead
         if peek_pos > len(self.text) - 1:
             return None
         else:
@@ -102,6 +104,7 @@ class Lexer:
             self.advance()
         return int(result)
 
+    """Special character handling here please and \ and more"""
     def string(self):
         """Return a string consumed from the input."""
         result = ''
@@ -144,6 +147,11 @@ class Lexer:
             if self.current_char.isspace():
                 self.skip_whitespace()
                 continue
+            
+            if self.text[self.pos:self.pos+6] == 'input(' and self.peek(5) == ')':
+                self.pos += 6  # Advance past 'input('
+                self.advance()  # Advance past ')'
+                return Token(INPUT, 'input()')
 
             if self.current_char.isdigit():
                 return Token(INTEGER, self.integer())
@@ -177,13 +185,18 @@ class Lexer:
                 self.advance()
                 return Token(MOD, '%')
 
-            if self.current_char == '=' and self.peek() == '=':
-                self.advance()
-                self.advance()
-                return Token(EQ, '==')
-            elif self.current_char == '=':
-                self.advance()
-                return Token(ASSIGN, '=')
+            if self.current_char == '=':
+                if self.peek() == '=':
+                    self.advance()
+                    self.advance()
+                    return Token(EQ, '==')
+                elif self.peek() == '>':
+                    self.advance()
+                    self.advance()
+                    return Token(ARROW, '=>')
+                else:
+                    self.advance()
+                    return Token(ASSIGN, '=')
             
             if self.current_char == '<' and self.peek() == '=':
                 self.advance()
@@ -271,5 +284,5 @@ def run_lexer(text):
 
 # Example usage
 if __name__ == "__main__":
-    input_text = 'for(x == 5){return 1}'
+    input_text = 'int x = input()'
     run_lexer(input_text)
