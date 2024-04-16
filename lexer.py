@@ -2,16 +2,7 @@
 # lexer.py
 
 import re
-
-class Token:
-    def __init__(self, type_, value=None):
-        self.type = type_
-        self.value = value
-
-    def __repr__(self):
-        return f"Token({self.type}, {repr(self.value)})"
-
-# Token types for lexer implementation
+from Token import Token
 INT = 'INT'
 BOOL = 'BOOL'
 STRING = 'STRING'
@@ -68,6 +59,7 @@ IDENTIFIER = 'IDENTIFIER'
 
 # End of file marker
 EOF = 'EOF'
+# Token types for lexer implementation
 
 # Lexer class definition
 class Lexer:
@@ -266,7 +258,7 @@ class Lexer:
             if self.current_char == ']':
                 self.advance()
                 return Token(RBRACKET, ']')
-        
+
             self.error()
 
         return Token(EOF, None)
@@ -278,11 +270,15 @@ class Lexer:
 def run_lexer(text):
     lexer = Lexer(text)
     token = lexer.get_next_token()
+    list_of_tokens = [token]
     while token.type != EOF:
-        print(token)
+        # print(token)
         token = lexer.get_next_token()
+        list_of_tokens.append(token)
+    return list_of_tokens
 
 # Example usage
 if __name__ == "__main__":
-    input_text = 'int x = input()'
-    run_lexer(input_text)
+    input_text = '\t\tprint(y)'#'int x = input()'
+    list_of_tokens = run_lexer(input_text)
+    print(list_of_tokens)

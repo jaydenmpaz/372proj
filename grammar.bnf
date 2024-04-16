@@ -1,0 +1,57 @@
+<program> ::= <statement_list>
+<statement_list> ::= <statement> <statement_list> | <statement>
+<statement> ::= <variable_declaration> ";"
+              | <assignment> ";"
+              | <expression> ";"
+              | <conditional_statement>
+              | <loop_statement>
+              | <print_statement>
+              | <input_statement>
+              | <function_declaration>
+<variable_declaration> ::= <int_declaration> | <bool_declaration> | <string_declaration>
+<int_declaration> ::= "int " <identifier> " = " <basic_expression>
+<bool_declaration> ::= "bool " <identifier> " = " <boolean_expression>
+<string_declaration> ::= "string" <identifier> " = " <string>
+<assignment> ::= <identifier> " = " <expression>
+<expression> ::= <basic_expression> | <boolean_expression> | <comparison_expression>
+<basic_expression> ::= <integer> "+" <basic_expression>
+                      | <integer> "-" <basic_expression>
+                      | <integer> "*" <basic_expression>
+                      | <integer> "/" <basic_expression>
+                      | <integer> "%" <basic_expression>
+                      | <integer>
+<boolean_expression> ::= <boolean_expression> "&&" <boolean_expression> 
+					  | <boolean_expression> "||" <boolean_expression> 
+                      | "!" <boolean_expression>
+                      | <comparison_expression>
+                      | <boolean>
+<comparison_expression> ::= (<identifier> | <integer>) <comparison_operator> (<identifier> | <integer>)
+<comparison_operator> ::= "<" | ">" | "==" | "<=" | ">="
+<conditional_statement> ::= "if" "(" <boolean_expression> ")" "{" <statement_list> "}"
+							| "if" "(" <expression> ")" "{" <statement_list> "}" <conditional_statement> 
+							| "if" "(" <expression> ")" "{" <statement_list> "}" "else" "{" <statement_list> "}"
+<loop_statement> ::= "for" "(" <assignment> ";" <boolean_expression> ";" <assignment> ")" "{" <statement_list> "}"
+<print_statement> ::= "print" "(" <string> ")" ";"
+<input_statement> ::= <data_type> <identifier> "=" <input_value> ";"
+<input_value> ::= "input()"
+<function_declaration> ::= "func " <data_type> <identifier> "(" <parameters_list> ")" "=>" <expression> ";"
+<parameters_list> ::= <parameter> | <parameter> "," <parameters_list>
+<parameter> ::= <data_type> <identifier>
+<value> ::= <integer> | <string> | <boolean>
+<identifier> ::= <letter> | <letter> <identifier_helper>
+<identifier_helper> ::= <letter_or_digit> <identifier_helper> | <letter_or_digit>
+<integer> ::= <digit> <integer> | <digit>
+<boolean> ::= "true" | "false"
+<data_type> ::= "int " | "string " | "bool "
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<letter> ::= <lowercase_letter> | <uppercase_letter>
+<lowercase_letter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" 
+					   | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+<uppercase_letter> ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" 
+					   | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+
+<letter_or_digit> ::= <letter> | <digit>
+<string> ::= "\"" <string_helper> "\"" | "\"\"" 
+<string_helper> ::= <letter_or_digit> <string_helper> | <special_characters> <string_helper> | <letter_or_digit> | <special_characters>
+<special_characters> ::= " " | "!" | "#" | "$" | "%" | "&" | "'" | "(" | ")" | "*" | "+" | "," | "-" | "." | "/" | ":" 
+			    | ";" | "<" | "=" | ">" | "?" | "@" | "[" | "\\" | "]" | "^" | "_" | "`" | "{" | "|" | "}" | "~"
