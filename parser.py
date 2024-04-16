@@ -133,6 +133,7 @@ class Parser:
         for tkn in incr[0]:
             if tkn.value!=')' and tkn.type!='EOF':
                 increment = increment+str(tkn.value)
+        increment+='\n'
         return conversion,increment
 
     def printStmt(self,stmt):
