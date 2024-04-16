@@ -266,19 +266,19 @@ class Lexer:
     def error(self):
         raise Exception('Invalid character')
     
-# Helper function to test lexer
-def run_lexer(text):
-    lexer = Lexer(text)
-    token = lexer.get_next_token()
-    list_of_tokens = [token]
-    while token.type != EOF:
-        # print(token)
-        token = lexer.get_next_token()
-        list_of_tokens.append(token)
-    return list_of_tokens
+# # Helper function to test lexer
+# def run_lexer(text):
+#     lexer = Lexer(text)
+#     token = lexer.get_next_token()
+#     list_of_tokens = [token]
+#     while token.type != EOF:
+#         # print(token)
+#         token = lexer.get_next_token()
+#         list_of_tokens.append(token)
+#     return list_of_tokens
 
-# Example usage
-if __name__ == "__main__":
-    input_text = '\t\tprint(y)'#'int x = input()'
-    list_of_tokens = run_lexer(input_text)
-    print(list_of_tokens)
+# # Example usage
+# if __name__ == "__main__":
+#     input_text = '\t\tprint(y)'#'int x = input()'
+#     list_of_tokens = run_lexer(input_text)
+#     print(list_of_tokens)
