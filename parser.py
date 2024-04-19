@@ -2,7 +2,7 @@ import re
 from Lexer import Lexer
 from Token import Token
 class Parser:
-    def __init__(self,path):
+    def __init__(self,path,destination):
         f = open(path,'r')
         lines = f.readlines()
         program = []
@@ -11,7 +11,7 @@ class Parser:
             program.append(self.run_lexer(line))
         python_program = self.traverse(program)
         f.close()
-        f = open('sample.py','w')
+        f = open(destination,'w')
         f.write(python_program)
         f.close()
 
@@ -201,4 +201,6 @@ class Parser:
                 conversion+=(' '+str(tkn.value))
         return conversion+'\n'
 
-Parser('sample_prog.txt')
+source = input('Name of file to parse: ')
+dest = input('Name of file to put converted file in:')
+Parser(source,dest)
