@@ -38,6 +38,8 @@
 <arguments> ::= <identifier> | <identifier> "," <arguments>
 <function_call> ::= <identifier> "(" <arguments> ")" | <identifier> "(" ")"
 <function_declaration> ::= "func " <data_type> <identifier> "(" <parameters_list> ")" "{" <statement_list> "}"
+                         | "func " <data_type> <identifier> "(" <parameters_list> ")" "{" <statement_list> <return_statement> "}"
+<return_statement> ::= "return " (<identifier> | <expression> ) ";"
 <parameters_list> ::= <parameter> | <parameter> "," <parameters_list>
 <parameter> ::= <data_type> <identifier>
 <value> ::= <integer> | <string> | <boolean>
