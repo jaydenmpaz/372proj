@@ -1,4 +1,9 @@
 def asd(a,b,c):
+	name = input ( )
+	y = int ( input ( ) )
+	print ("Values inputted:" )
+	print ( name , y )
+	print ("Loop" )
 	x = 10
 	while x < 15 and x >= 10 and x != 20:
 		if x == 12:
@@ -10,7 +15,8 @@ def asd(a,b,c):
 		else:
 			print ( x )
 		x+=1
-1
-print ("Calling function " )
-asd ( 1 , asd , False )
+	return 0
+print ("Calling function" )
+ret = asd ( 1 , asd , False )
+print ("Function returned" , ret )
 

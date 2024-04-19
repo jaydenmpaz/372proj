@@ -34,7 +34,7 @@
 <loop_statement> ::= "for" "(" <assignment> ";" <boolean_expression> ";" <assignment> ")" "{" <statement_list> "}"
 <print_statement> ::= "print" "(" <string> ")" ";"
 <input_statement> ::= <data_type> <identifier> "=" <input_value> ";"
-<input_value> ::= "input" "(" ")"
+<input_value> ::= "int" "(" "input" "(" ")" ")" | "input" "(" ")" 
 <arguments> ::= <identifier> | <identifier> "," <arguments>
 <function_call> ::= <identifier> "(" <arguments> ")" | <identifier> "(" ")"
 <function_declaration> ::= "func " <data_type> <identifier> "(" <parameters_list> ")" "{" <statement_list> "}"

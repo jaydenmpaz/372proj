@@ -164,7 +164,6 @@ class Parser:
         return conversion+'\n'
     
     def assignStmt(self,stmt):
-        print(stmt)
         x=0
         conversion = '\t'*stmt[1]
         while stmt[0][x].type!='IDENTIFIER':

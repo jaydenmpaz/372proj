@@ -1,5 +1,13 @@
 func int asd(int a, string b, bool c){
-    for(int x=10;x<15 && x>=10 && x!=20;x+=1){
+
+    string name = input();
+    int y = int(input());
+
+    print("Values inputted:")
+    print(name,y);
+
+    print("Loop")
+    for(int x = 10;x<15 && x>=10 && x!=20;x+=1){
         if(x==12){
             for(int y=100;y<200;y+=10){
                 if(y>110 && y<=190)
@@ -10,7 +18,9 @@ func int asd(int a, string b, bool c){
         }
         else { print(x); }
     }
+    return 0;
 }
-1
-print("Calling function ");
-asd(1,"asd",false);
+
+print("Calling function");
+int ret = asd(1,"asd",false);
+print("Function returned",ret);
