@@ -1,14 +1,16 @@
-for(int x=10;x<15 && x>=10 && x!=20;x+=1){
-    if(x==12){
-        for(int y=100;y<200;y+=10){
-            if(y>110 && y<=190){
-                print(y);
+func int asd(int a, string b, bool c){
+    for(int x=10;x<15 && x>=10 && x!=20;x+=1){
+        if(x==12){
+            for(int y=100;y<200;y+=10){
+                if(y>110 && y<=190)
+                {
+                    print(y);
+                }
             }
         }
-    }
-    else
-    {
-        print(x);
+        else { print(x); }
     }
 }
-print("Checking nested blocks");
+1
+print("Calling function ");
+asd(1,"asd",false);

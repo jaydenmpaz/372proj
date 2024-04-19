@@ -8,11 +8,12 @@
               | <print_statement>
               | <input_statement>
               | <function_declaration>
+              | <function_call> ";"
 <variable_declaration> ::= <int_declaration> | <bool_declaration> | <string_declaration>
 <int_declaration> ::= "int " <identifier> " = " <basic_expression>
 <bool_declaration> ::= "bool " <identifier> " = " <boolean_expression>
 <string_declaration> ::= "string" <identifier> " = " <string>
-<assignment> ::= <identifier> " = " <expression>
+<assignment> ::= <identifier> " = " ( <expression> | <function_call> )
 <expression> ::= <basic_expression> | <boolean_expression> | <comparison_expression>
 <basic_expression> ::= <integer> "+" <basic_expression>
                       | <integer> "-" <basic_expression>
@@ -33,8 +34,10 @@
 <loop_statement> ::= "for" "(" <assignment> ";" <boolean_expression> ";" <assignment> ")" "{" <statement_list> "}"
 <print_statement> ::= "print" "(" <string> ")" ";"
 <input_statement> ::= <data_type> <identifier> "=" <input_value> ";"
-<input_value> ::= "input()"
-<function_declaration> ::= "func " <data_type> <identifier> "(" <parameters_list> ")" "=>" <expression> ";"
+<input_value> ::= "input" "(" ")"
+<arguments> ::= <identifier> | <identifier> "," <arguments>
+<function_call> ::= <identifier> "(" <arguments> ")" | <identifier> "(" ")"
+<function_declaration> ::= "func " <data_type> <identifier> "(" <parameters_list> ")" "{" <statement_list> "}"
 <parameters_list> ::= <parameter> | <parameter> "," <parameters_list>
 <parameter> ::= <data_type> <identifier>
 <value> ::= <integer> | <string> | <boolean>

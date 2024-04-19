@@ -55,15 +55,17 @@ class Parser:
                 if tkn.type=='IF' or tkn.type=='ELSE' or tkn.type=='FUNC' or tkn.type=='FOR' or tkn.type=='ASSIGN' or tkn.type=='PRINT':
                     stmtType= tkn.type
                     break
-                elif tkn.type=='INT_TYPE' or tkn.type=='BOOLEAN' or tkn.type=='STRING_LITERAL':
+                elif tkn.type=='INT_TYPE' or tkn.type=='BOOL_TYPE' or tkn.type=='STRING_TYPE':
                     stmtType='DECL'
                 elif tkn.type=='EOF' and stmtType==None:
                     stmtType='EXPR'
+            
             if tabs!=[]:
                 if stmt[1]==tabs[-1]:
                     conversion+=increment[-1]
                     tabs.pop(-1)
                     increment.pop(-1)
+
             if stmtType=='IF':
                 conversion+=self.ifStmt(stmt)
             elif stmtType=='ELSE':
@@ -87,6 +89,15 @@ class Parser:
             x+=1
         conversion+='\n'
         return conversion
+
+    def funcStmt(self,stmt):
+        conversion='\t'*stmt[1]+"def "
+        for tkn in stmt[0][2:]:
+            if tkn.type!='INT_TYPE' and tkn.type!='STRING_TYPE' and tkn.type!='BOOL_TYPE':
+                conversion+=tkn.value
+        conversion+=':\n'
+        return conversion
+
 
     def declStmt(self, stmt):
         conversion='\t'*stmt[1]
@@ -153,6 +164,7 @@ class Parser:
         return conversion+'\n'
     
     def assignStmt(self,stmt):
+        print(stmt)
         x=0
         conversion = '\t'*stmt[1]
         while stmt[0][x].type!='IDENTIFIER':
