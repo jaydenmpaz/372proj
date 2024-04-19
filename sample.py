@@ -1,4 +1,5 @@
 def asd(a,b,c):
+	print ("Parameter" , a , b , c )
 	name = input ( )
 	y = int ( input ( ) )
 	print ("Values inputted:" )
@@ -17,6 +18,6 @@ def asd(a,b,c):
 		x+=1
 	return 0
 print ("Calling function" )
-ret = asd ( 1 , asd , False )
+ret = asd ( 1 ,"asd" , False )
 print ("Function returned" , ret )
 

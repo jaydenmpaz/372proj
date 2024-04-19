@@ -131,7 +131,9 @@ class Parser:
             x+=1
         conversion = conversion + str(stmt[0][x].value) + ' ' +str(stmt[0][x+1].value) + ' ' +str(stmt[0][x+2].value) + '\n' +'\t'*stmt[1] + 'while'
         for tkn in condition[0]:
-            if tkn.type=='AND':
+            if tkn.type=='STRING_LITERAL':
+                conversion += '"'+tkn.value+'"'
+            elif tkn.type=='AND':
                 conversion += ' and'
             elif tkn.type=='OR':
                 conversion += ' or'
@@ -171,7 +173,9 @@ class Parser:
         conversion+=stmt[0][x].value
         x+=1
         for tkn in stmt[0][x:]:
-            if tkn.type=='AND':
+            if tkn.type=='STRING_LITERAL':
+                conversion += '"'+tkn.value+'"'
+            elif tkn.type=='AND':
                 conversion += ' and'
             elif tkn.type=='OR':
                 conversion += ' or'
@@ -188,7 +192,9 @@ class Parser:
         conversion = '\t'*stmt[1]
         first = False
         for tkn in stmt[0]:
-            if tkn.type=='AND':
+            if tkn.type=='STRING_LITERAL':
+                conversion += '"'+tkn.value+'"'
+            elif tkn.type=='AND':
                 conversion += ' and'
             elif tkn.type=='OR':
                 conversion += ' or'
@@ -202,5 +208,5 @@ class Parser:
         return conversion+'\n'
 
 source = input('Name of file to parse: ')
-dest = input('Name of file to put converted file in:')
+dest = input('Name of file to put converted file in: ')
 Parser(source,dest)

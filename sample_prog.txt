@@ -1,12 +1,14 @@
 func int asd(int a, string b, bool c){
 
+    print("Parameter",a,b,c);
+
     string name = input();
     int y = int(input());
 
-    print("Values inputted:")
+    print("Values inputted:");
     print(name,y);
 
-    print("Loop")
+    print("Loop");
     for(int x = 10;x<15 && x>=10 && x!=20;x+=1){
         if(x==12){
             for(int y=100;y<200;y+=10){
