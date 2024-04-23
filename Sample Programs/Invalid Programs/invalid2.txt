@@ -1,0 +1,4 @@
+# Variable initialization
+int val = 372;
+bool flag = true;
+str x = "hello world";  # Invalid syntax as str is not a valid identifier

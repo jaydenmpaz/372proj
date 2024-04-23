@@ -1,0 +1,8 @@
+int x = 5  // Missing semicolon in variable assignment
+
+func int double(int y) {
+    return y *2 ;
+}
+
+int res = double(x);
+print(res);

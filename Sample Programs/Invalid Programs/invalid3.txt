@@ -1,0 +1,10 @@
+# Initialize variables
+int a = 25;
+int b = 10;
+
+# Function to multiply two integers
+func int mult(int x , int y {  # Syntax error due to unbalanced parentheses
+    return x * y;
+}
+
+int res = mult(a, b);
