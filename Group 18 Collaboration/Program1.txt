@@ -1,0 +1,29 @@
+
+function num gcd(num a, num b): {
+    if (b == 0) a else gcd(b, a % b);
+}
+
+function num lcm(num a, num b): {
+    (a * b) / gcd(a, b);
+}
+
+function num main(): {
+    num a = str2int(cargs(1));
+    num b = str2int(cargs(2));
+    
+    num max = if (a >= b) a else b;
+    num sum = a + b;
+    num diff = if (a >= b) a - b else b - a;
+    num prod = a * b;
+    num g = gcd(a, b);
+    num l = lcm(a, b);
+    
+    printf("Max = %d\n", max);
+    printf("Sum = %d\n", sum);
+    printf("Difference = %d\n", diff);
+    printf("Product = %d\n", prod);
+    printf("GCD = %d\n", g);
+    printf("LCM = %d\n", l);
+    
+    0;
+}
