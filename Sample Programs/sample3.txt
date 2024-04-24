@@ -51,4 +51,4 @@ func void main() {
     print("Thanks for playing! Your final score is ", score);
 }
 
-main()
+main();
