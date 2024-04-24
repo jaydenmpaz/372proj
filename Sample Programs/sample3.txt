@@ -1,20 +1,13 @@
-# Function to generate a random number
-func int generate_random(int lower, int upper) {
-    int range = upper - lower;
-    int rand_num = lower + (rand() % range);
-    return rand_num;
-}
-
-# Function to get user input
+# Function to get user input as an integer
 func int get_input() {
     int user_input = input();
     return user_input;
 }
 
-# Function to create an addition question
-func int addition_question() {
-    int num1 = generate_random(1, 10);
-    int num2 = generate_random(1, 10);
+# Function to create an addition question with fixed numbers
+func int addition_question(int score) {
+    int num1 = 3;  # Fixed number for the first operand
+    int num2 = 7;  # Fixed number for the second operand
 
     print("What is ", num1, " + ", num2, "?");
     int user_answer = get_input();
@@ -22,17 +15,18 @@ func int addition_question() {
 
     if (user_answer == correct_answer) {
         print("Correct!");
+        score += 1;
     } else {
         print("Incorrect, the correct answer is ", correct_answer);
     }
 
-    return 0;
+    return score;
 }
 
-# Function to create a multiplication question
-func int multiplication_question() {
-    int num1 = generate_random(1, 10);
-    int num2 = generate_random(1, 10);
+# Function to create a multiplication question with fixed numbers
+func int multiplication_question(int score) {
+    int num1 = 4;  # Fixed number for the first operand
+    int num2 = 6;  # Fixed number for the second operand
 
     print("What is ", num1, " * ", num2, "?");
     int user_answer = get_input();
@@ -40,24 +34,27 @@ func int multiplication_question() {
 
     if (user_answer == correct_answer) {
         print("Correct!");
+        score += 1;
     } else {
         print("Incorrect, the correct answer is ", correct_answer);
     }
 
-    return 0;
+    return score;
 }
 
 # Main function to run the math test
 func void main() {
+    int score = 0;  # Initialize the score
     print("Welcome to the Easy Math Test!");
     print("Answer the following questions:");
 
-    # Addition question
-    addition_question();
+    # Ask an addition question and update the score
+    score = addition_question(score);
 
-    # Multiplication question
-    multiplication_question();
+    # Ask a multiplication question and update the score
+    score = multiplication_question(score);
 
-    print("Thanks for playing!");
+    print("Thanks for playing! Your final score is ", score);
+
     return 0;
 }
