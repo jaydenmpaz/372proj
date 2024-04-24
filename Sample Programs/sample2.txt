@@ -15,22 +15,23 @@ func int div(int a, int b) {
 }
 
 func bool isEven(int val) {
-    bool x;
     if (val % 2 == 0) {
-        x = true;
+        return true;
     } else {
-        x = false;
+        return false;
     }
-    return x;
 }
 
 func void main() {
+    
     string prompt = "Hello, please enter 2 digits!";
     print(prompt);
     
+    
     int x = int(input());
-    int y = int(input());   
+    int y = int(input());
 
+    
     if (x < y) {
         print(x, "is less than", y);
     } 
