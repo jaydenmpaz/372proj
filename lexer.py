@@ -263,6 +263,7 @@ class Lexer:
         return Token(EOF, None)
 
     def error(self):
+        print(f"Invalid character '{self.current_char}' at position {self.pos}")
         raise Exception('Invalid character')
     
 # # Helper function to test lexer

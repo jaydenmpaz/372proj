@@ -15,7 +15,10 @@ func int div(int a, int b) {
 }
 
 func bool isEven(int val) {
+<<<<<<< HEAD
     bool x;
+=======
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
     if (val % 2 == 0) {
         x = true;
     } else {
@@ -25,12 +28,24 @@ func bool isEven(int val) {
 }
 
 func void main() {
+<<<<<<< HEAD
     string prompt = "Hello, please enter 2 digits!";
     print(prompt);
     
     int x = int(input());
     int y = int(input());
 
+=======
+    
+    string prompt = "Hello, please enter 2 digits!";
+    print(prompt);
+    
+    
+    int x = int(input());
+    int y = int(input());
+
+    
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
     if (x < y) {
         print(x, "is less than", y);
     } 
@@ -38,26 +53,38 @@ func void main() {
         print(x, "is greater than", y);
     }
     if (x == y) {
+<<<<<<< HEAD
         print(x,"is equal to", y);
+=======
+        print(x, "is equal to", y);
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
     }
-
-    if(isEven(x)) {
+    bool even = isEven(x);
+    if(even) {
         print(x, " is even");
     } else {
         print(x, " is odd");
     }
 
-    if(isEven(y)) {
+    if(even) {
         print(y, " is even");
     } else {
         print(y, " is odd");
     }
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
     int sum = add(x, y);
     int diff = sub(x, y);
     int prod = mult(x, y);
     int quot = div(x, y);
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
     print("Sum of ", x, y, sum);
     print("Difference of ", x, y, diff);
     print("Product of ", x, y, prod);
@@ -65,5 +92,9 @@ func void main() {
 
     return "Done!";
 }
+<<<<<<< HEAD
 
 main()
+=======
+main();
+>>>>>>> 92f63fd5fc03975074c25933923449879137d792
