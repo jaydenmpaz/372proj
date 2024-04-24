@@ -1,11 +1,6 @@
+function num gcd(a: num, b: num): if (b == 0) a else gcd(b, a % b);
 
-function num gcd(num a, num b): {
-    if (b == 0) a else gcd(b, a % b);
-}
-
-function num lcm(num a, num b): {
-    (a * b) / gcd(a, b);
-}
+function num lcm(a: num, b: num): (a * b) / gcd(a, b);
 
 function num main(): {
     num a = str2int(cargs(1));
