@@ -258,7 +258,6 @@ class Lexer:
             if self.current_char == ']':
                 self.advance()
                 return Token(RBRACKET, ']')
-
             self.error()
 
         return Token(EOF, None)

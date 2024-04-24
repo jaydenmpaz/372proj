@@ -51,6 +51,7 @@ class Parser:
         while x<len(statements):
             stmtType = None
             stmt = statements[x]
+            print(stmt)
             for tkn in stmt[0]:
                 if tkn.type=='IF' or tkn.type=='ELSE' or tkn.type=='FUNC' or tkn.type=='FOR' or tkn.type=='ASSIGN' or tkn.type=='PRINT':
                     stmtType= tkn.type
@@ -109,18 +110,17 @@ class Parser:
 
     def ifStmt(self,stmt):
         conversion = '\t'*stmt[1] + 'if'
-        for tkn in stmt[0]:
-            if tkn.value!='(' and tkn.value!=')' and tkn.value!='if':
-                if tkn.type=='STRING_LITERAL':
-                    conversion+= ' "'+tkn.value+'"'
-                elif tkn.type=='AND':
-                    conversion += ' and'
-                elif tkn.type=='OR':
-                    conversion += ' or'
-                elif tkn.type=='NOT':
-                    conversion += ' not'
-                else:
-                    conversion+=(' '+str(tkn.value))
+        for tkn in stmt[0][2:len(stmt[0])-1]:
+            if tkn.type=='STRING_LITERAL':
+                conversion+= ' "'+tkn.value+'"'
+            elif tkn.type=='AND':
+                conversion += ' and'
+            elif tkn.type=='OR':
+                conversion += ' or'
+            elif tkn.type=='NOT':
+                conversion += ' not'
+            else:
+                conversion+=(' '+str(tkn.value))
         conversion+=':\n'
         return conversion
     

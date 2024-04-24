@@ -2,7 +2,9 @@ func int asd(int a, string b, bool c){
 
     print("Parameter",a,b,c);
 
+    print("Enter name:");
     string name = input();
+    print("Enter number:");
     int y = int(input());
 
     print("Values inputted:");

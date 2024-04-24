@@ -1,13 +1,11 @@
-# Function to get user input as an integer
 func int get_input() {
-    int user_input = input();
+    int user_input = int(input());
     return user_input;
 }
 
-# Function to create an addition question with fixed numbers
 func int addition_question(int score) {
-    int num1 = 3;  # Fixed number for the first operand
-    int num2 = 7;  # Fixed number for the second operand
+    int num1 = 3;
+    int num2 = 7;
 
     print("What is ", num1, " + ", num2, "?");
     int user_answer = get_input();
@@ -15,7 +13,7 @@ func int addition_question(int score) {
 
     if (user_answer == correct_answer) {
         print("Correct!");
-        score += 1;
+        score = score + 1;
     } else {
         print("Incorrect, the correct answer is ", correct_answer);
     }
@@ -23,10 +21,9 @@ func int addition_question(int score) {
     return score;
 }
 
-# Function to create a multiplication question with fixed numbers
 func int multiplication_question(int score) {
-    int num1 = 4;  # Fixed number for the first operand
-    int num2 = 6;  # Fixed number for the second operand
+    int num1 = 4;  
+    int num2 = 6;
 
     print("What is ", num1, " * ", num2, "?");
     int user_answer = get_input();
@@ -34,7 +31,7 @@ func int multiplication_question(int score) {
 
     if (user_answer == correct_answer) {
         print("Correct!");
-        score += 1;
+        score = score + 1;
     } else {
         print("Incorrect, the correct answer is ", correct_answer);
     }
@@ -42,19 +39,16 @@ func int multiplication_question(int score) {
     return score;
 }
 
-# Main function to run the math test
 func void main() {
-    int score = 0;  # Initialize the score
+    int score = 0;
     print("Welcome to the Easy Math Test!");
     print("Answer the following questions:");
 
-    # Ask an addition question and update the score
     score = addition_question(score);
 
-    # Ask a multiplication question and update the score
     score = multiplication_question(score);
 
     print("Thanks for playing! Your final score is ", score);
-
-    return 0;
 }
+
+main()
