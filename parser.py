@@ -51,7 +51,6 @@ class Parser:
         while x<len(statements):
             stmtType = None
             stmt = statements[x]
-            print(stmt)
             for tkn in stmt[0]:
                 if tkn.type=='IF' or tkn.type=='ELSE' or tkn.type=='FUNC' or tkn.type=='FOR' or tkn.type=='ASSIGN' or tkn.type=='PRINT':
                     stmtType= tkn.type
