@@ -1,5 +1,5 @@
 import re
-from Lexer import Lexer
+from lexer import Lexer
 from Token import Token
 class Parser:
     def __init__(self,path,destination):
