@@ -1,5 +1,5 @@
 func int get_input() {
-    int user_input = int(input());
+    int user_input = input();
     return user_input;
 }
 
@@ -22,7 +22,7 @@ func int addition_question(int score) {
 }
 
 func int multiplication_question(int score) {
-    int num1 = 4;  
+    int num1 = 4;
     int num2 = 6;
 
     print("What is ", num1, " * ", num2, "?");
@@ -45,10 +45,9 @@ func void main() {
     print("Answer the following questions:");
 
     score = addition_question(score);
-
     score = multiplication_question(score);
 
     print("Thanks for playing! Your final score is ", score);
 }
 
-main()
+main();
