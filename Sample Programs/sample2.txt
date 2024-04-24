@@ -1,0 +1,70 @@
+func int add(int a, int b) {
+    return a + b;
+}
+
+func int sub(int a, int b) {
+    return a - b;
+}
+
+func int mult(int a, int b) {
+    return a * b
+}
+
+fun int div(int a, int b) {
+    return a / b;
+}
+
+fun bool isEven(int val) {
+    if (val % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+func void main() {
+    # Variable assignment and print
+    string prompt = "Hello, please enter 2 digits!";
+    print(prompt);
+    
+    # Get numerical values from user
+    int x = input();
+    int y = input();
+
+    # Comparison expressions
+    if (x < y) {
+        print(x, "is less than", y);
+    } 
+    if (x > y) {
+        print(x, "is greater than", y);
+    }
+    if (x == y) {
+        print(x "is equal to", y);
+    }
+
+    if(isEven(x)) {
+        print(x, " is even");
+    } else {
+        print(x, " is odd);
+    }
+
+    if(isEven(y)) {
+        print(y, " is even");
+    } else {
+        print(y, " is odd);
+    }
+    
+    # Calculate values with every arithemtic operator
+    int sum = add(x, y);
+    int diff = sub(x, y);
+    int prod = mult(x, y);
+    int quot = div(x, y);
+
+    # Print results
+    print("Sum of ", x, y, sum);
+    print("Difference of ", x, y), diff;
+    print("Product of ", x, y, prod);
+    print("Quotient of ", x, y, quot);
+
+    return "Done!";
+}
