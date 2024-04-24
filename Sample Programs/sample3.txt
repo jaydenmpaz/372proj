@@ -1,0 +1,63 @@
+# Function to generate a random number
+func int generate_random(int lower, int upper) {
+    int range = upper - lower;
+    int rand_num = lower + (rand() % range);
+    return rand_num;
+}
+
+# Function to get user input
+func int get_input() {
+    int user_input = input();
+    return user_input;
+}
+
+# Function to create an addition question
+func int addition_question() {
+    int num1 = generate_random(1, 10);
+    int num2 = generate_random(1, 10);
+
+    print("What is ", num1, " + ", num2, "?");
+    int user_answer = get_input();
+    int correct_answer = num1 + num2;
+
+    if (user_answer == correct_answer) {
+        print("Correct!");
+    } else {
+        print("Incorrect, the correct answer is ", correct_answer);
+    }
+
+    return 0;
+}
+
+# Function to create a multiplication question
+func int multiplication_question() {
+    int num1 = generate_random(1, 10);
+    int num2 = generate_random(1, 10);
+
+    print("What is ", num1, " * ", num2, "?");
+    int user_answer = get_input();
+    int correct_answer = num1 * num2;
+
+    if (user_answer == correct_answer) {
+        print("Correct!");
+    } else {
+        print("Incorrect, the correct answer is ", correct_answer);
+    }
+
+    return 0;
+}
+
+# Main function to run the math test
+func void main() {
+    print("Welcome to the Easy Math Test!");
+    print("Answer the following questions:");
+
+    # Addition question
+    addition_question();
+
+    # Multiplication question
+    multiplication_question();
+
+    print("Thanks for playing!");
+    return 0;
+}
